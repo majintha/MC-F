@@ -1,0 +1,226 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Overview</h2>
+            <p><small>View overall statistics of entities in the system</small></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">{{data.batchCount}}</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">Batches</p>
+                <p class="count-hint">Active batches</p>
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <style>
+          * {box-sizing: border-box}
+          
+          .container {
+            width: 300%;
+            
+          }
+          
+          .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+          }
+          
+          .html {width: 50%; background-color: #4CAF50; text-align: center;}
+          .css {width: 20%; background-color: #2196F3; text-align: center;}
+          .js {width: 40%; background-color: #f44336; text-align: center;}
+          .php {width: 80%; background-color: #f17faf; text-align: center;}
+          </style>
+          </head>
+          <body>
+          
+            <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          
+         
+          
+          <p>Lecturers</p>
+          <div class="container">
+            <div class="skills html">50%</div>
+          </div>
+          
+          <p>Rooms</p>
+          <div class="container">
+            <div class="skills css">20%</div>
+          </div>
+          
+          <p>Subjects</p>
+          <div class="container">
+            <div class="skills js">40%</div>
+          </div>
+          
+          <p>groups</p>
+          <div class="container">
+            <div class="skills php">80%</div>
+          </div>
+          
+          </body>
+          </html>
+          
+
+
+        </div>
+    
+        
+    
+        <div class="col-md-3">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">{{data.lecturerCount}}</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">Lecturers</p>
+                <p class="count-hint">Active lecturers</p>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+        </div>
+    
+    
+        <div class="col-md-3">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">{{data.subjectCount}}</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">Subjects</p>
+                <p class="count-hint">Active Subjects</p>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+        </div>
+    
+    
+        <div class="col-md-3">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">{{data.roomsCount}}</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">Rooms</p>
+                <p class="count-hint">Available rooms</p>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+          <br />
+          <br />
+          <br />
+          <br />
+         
+          
+
+          <h2>. . Latest Update . .</h2>
+          <br />
+          <br />
+          <br />
+        
+
+      
+
+        <div class="col-md-12">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">Silva</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">Lecturer</p>
+                <p class="count-hint">Last Eddited</p>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+          <br />
+          
+          
+
+        </div>
+
+        <div class="col-md-12">
+          <div class="stat-card" *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="count">{{data.roomsCount}}</span>
+              </div>
+              <div class="col-md-8 separator" style="text-align: left;">
+                <p class="count-label">group</p>
+                <p class="count-hint">Last Eddited</p>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card-ghost" *ngIf="isLoading"></div>
+  
+         <br />
+          
+        
+        </div>
+
+       <div class="col-md-12">
+        <div class="stat-card" *ngIf="!isLoading">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="count"> I P </span>
+            </div>
+            <div class="col-md-8 separator" style="text-align: left;">
+              <p class="count-label">Subject</p>
+              <p class="count-hint">Last Eddited</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card-ghost" *ngIf="isLoading"></div>
+
+       
+      
+       </div>
+     
+        
+      </div>
+    <!-- maji -->
+  </div>
+</div>
+
+
+
+
+
+
+
