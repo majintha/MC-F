@@ -3,6 +3,7 @@ import { TimeSlotsService } from './../../../../services/time-slots.service';
 import { WorksService } from './../../../../services/works.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { AlertService } from 'app/services/alert.service';
 
 @Component({
   selector: 'app-add-time-slots',
@@ -16,6 +17,7 @@ export class AddTimeSlotsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public worksService: WorksService,
+    private alertService: AlertService
   ) { }
 
   timeSlotsStarting: string[];
@@ -69,8 +71,10 @@ export class AddTimeSlotsComponent implements OnInit {
     this.timeSlotsService.selectedTimeSlot.timeSlotsEndTimes = this.timeSlotsEnding.toString();
     this.timeSlotsService.postTimeSlots(this.timeSlotsService.selectedTimeSlot).subscribe(response => {
       console.log(response);
+      this.alertService.showAlert('Success!', 'Successfully Added Time Slot', 'success');
     }, err => {
       console.log(err.message);
+      
     });
   }
 

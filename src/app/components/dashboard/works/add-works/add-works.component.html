@@ -9,7 +9,7 @@
             <input matInput name="timeTableID" [(ngModel)]="worksService.selectedWorks.timeTableID" #timeTableID="ngModel" pattern="^[A-Z]{1}[0-9_-]{2}$" placeholder="* Time table ID must have 3 characters(Includes One capital letter and Two numbers)" style="color: #fff;" required>
           </mat-form-field>
           <div *ngIf="timeTableID.errors?.pattern">
-            <label style="color: #960B06; font-family: 'Courier New'; font-weight: bolder;" class="mr-2">Time Table ID is Not Valid.</label>
+            <label style="color: #f52e2e; font-family: 'sans-serif'; " class="mr-2">Time Table ID is Not Valid.</label>
           </div>
 
           <mat-form-field appearance="outline">
@@ -23,6 +23,9 @@
             <mat-label>Number of working Days</mat-label>
             <input matInput name="noOfWorkingDays" [(ngModel)]="worksService.selectedWorks.noOfWorkingDays" #noOfWorkingDays="ngModel" (change)="getNoOfWorkingDays()" style="color: #fff;" required>
           </mat-form-field>
+
+          
+
           <div  *ngIf="worksService.selectedWorks.timeTableType == 'weekday'">
             <mat-label class="mb-2">Working Days</mat-label>
             <section>
@@ -60,9 +63,7 @@
           </div>
           <button mat-flat-button class="col-2" (click)="createWork()" class="mb-3" style="background-color: #5A59F2;" [disabled]="worksForm.invalid">SUBMIT</button>
           <div *ngIf="disable == false" class="mt-2">
-            <div class="alert" style="background-color: #48C9B0; color: #fff; " role="alert">
-               are Successfully Added.......
-            </div>
+            
           </div>
       </div>
       </div>

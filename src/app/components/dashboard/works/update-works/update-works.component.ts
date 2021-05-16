@@ -3,6 +3,8 @@ import { WorksService } from './../../../../services/works.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Works } from 'app/models/works.model';
+import { AlertService } from 'app/services/alert.service';
+
 
 
 @Component({
@@ -12,6 +14,7 @@ import { Works } from 'app/models/works.model';
 })
 export class UpdateWorksComponent implements OnInit {
 
+  id: string;
   selectedDays: string[];
   disable: boolean;
   count: number;
@@ -21,7 +24,9 @@ export class UpdateWorksComponent implements OnInit {
   constructor(
     public worksService: WorksService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
+    
   ) { }
 
   ngOnInit(): void {
@@ -126,10 +131,17 @@ export class UpdateWorksComponent implements OnInit {
           this.labelDisable = false;
           setTimeout(() => {
           this.disable = true;
-        }, 1000);
+          this.alertService.showAlert('Success!', 'Successfully Updated the Details', 'success');
+          
+        }, );
         })
       }
 
+     
+
     }
+
+   
+
 
 }

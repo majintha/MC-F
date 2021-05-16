@@ -3,6 +3,7 @@ import { WorksService } from 'app/services/works.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Works } from 'app/models/works.model';
+import { AlertService } from 'app/services/alert.service';
 
 @Component({
   selector: 'app-add-works',
@@ -21,6 +22,7 @@ export class AddWorksComponent implements OnInit {
     public worksService: WorksService,
     private route: ActivatedRoute,
     private router: Router,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -122,10 +124,12 @@ export class AddWorksComponent implements OnInit {
     this.worksService.addWork(this.worksService.selectedWorks).subscribe(response => {
       console.log(response);
       this.disable = false;
+      this.alertService.showAlert('Success!', 'Successfully Added the Details!', 'success');
       setTimeout(() => {
         this.disable = true;
-      }, 1000);
-      //this.clear();
+        
+      }, );
+      this.clear();
 
     }, err => {
       console.log(err.message);

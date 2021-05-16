@@ -3,6 +3,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { SessionsService } from "app/services/sessions.service";
 import { Router } from "@angular/router";
 import { MatSort } from "@angular/material/sort";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface APIResponse {
   success: boolean;
@@ -22,6 +23,7 @@ export class ManageSessionsComponent implements OnInit {
     "selectedGroup",
     "studentCount",
     "duration",
+    "action",
   ];
   dataSource: MatTableDataSource<any>;
 
@@ -29,6 +31,7 @@ export class ManageSessionsComponent implements OnInit {
 
   constructor(
     private sessionsService: SessionsService,
+    private snackBar: MatSnackBar,
     private router: Router
   ) {}
 
@@ -69,4 +72,21 @@ export class ManageSessionsComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
+
+  deleteLecturer(id: String){
+    this.sessionsService.deleteSessionsById(id).subscribe(response => {
+      console.log(response);
+      this.snackBar.open('Details are successfully deleted', null, { duration : 2000});
+      this.viewAllSessions();
+      
+    }, err => {
+      this.snackBar.open('Details could not be deleted', null, { duration : 3000});
+      console.log(err.message);
+    });
+  }
+
+  updateSession(id: String) {
+    this.router.navigate(['/sessions/add'], { queryParams: { id } });
+  }
+
 }

@@ -16,9 +16,7 @@
             <mat-label>Number of working Days</mat-label>
             <input matInput name="noOfWorkingDays" [(ngModel)]="worksService.selectedWorks.noOfWorkingDays" style="color: #fff;">
           </mat-form-field>
-          <div *ngIf="labelDisable == true">
-            <label style="color: #960B06; font-family: 'Courier New'; font-weight: bolder;" class="mr-2">Updated unsuccessfully</label><label style="color: #E80DD0; font-family: 'Courier New'; font-weight: bolder;">Number of working days and working days are unMatching..</label>
-          </div>
+          
 
           <div *ngIf="worksService.selectedWorks.timeTableType == 'weekday'">
             <mat-label class="mb-2">Working Days</mat-label>
@@ -40,6 +38,10 @@
           </section>
           </div>
 
+          <div *ngIf="labelDisable == true">
+            <label style="color: #f52e2e; font-family: 'Courier New'; font-weight: bolder;">Number of Working Days and Working Days are Unmatching..!</label>
+          </div>
+
           <mat-label class="row" style="padding-left: 15px;">Working time per Day</mat-label>
           <div class="row mt-2">
             <div class="col-6">
@@ -55,12 +57,13 @@
               </mat-form-field>
             </div>
           </div>
-          <button mat-flat-button class="col-2" (click)="updateWorks()" style="background-color: #5A59F2;" [disabled]="worksForm.invalid">UPDATE DETAILS</button>
+          <button mat-flat-button class="col-2" (click)="updateWorks()" style="background-color: #5A59F2;" [disabled]="worksForm.invalid" routerLink="/manage-works.component.html" >UPDATE DETAILS</button>
           <div *ngIf="disable == false" class="mt-2">
-            <div class="alert" style="background-color: #E67E22; color: #fff; " role="alert">
-              Working Days and Hours are Successfully Updated.......
-            </div>
+     
+};
+            
           </div>
+          
       </div>
       </div>
     </div>

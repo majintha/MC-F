@@ -1,8 +1,9 @@
-<h2 class="mb-3">Working Days and Hours</h2>
+<h2 class="mb-3">View Working Days and Hours</h2>
 <div>
   <table class="table table-dark">
     <thead style="color: #2E86C1; font-weight: bold;">
       <tr>
+        <th scope="col">Timetable ID</th>
         <th scope="col">Timetable Type</th>
         <th scope="col">No of working days</th>
         <th scope="col">Working days</th>
@@ -14,6 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let workObj of worksService.works">
+        <td>{{workObj.timeTableID}}</td>
         <td>{{workObj.timeTableType}}</td>
         <td>{{workObj.noOfWorkingDays}}</td>
         <td>{{workObj.workingDays}}</td>
