@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LecturersService } from 'app/services/lecturers.service';
 import { UnavailabilityService } from 'app/services/unavailability.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-u-lecturers',
@@ -15,6 +16,9 @@ export class ULecturersComponent implements OnInit {
   public day: string;
   public startTime: string;
   public endTime: string;
+
+  displayedColumns = ['lecturers','dname','sname','ename','action'];
+  dataSource: MatTableDataSource<any>;
 
   constructor(
     private lecturersService: LecturersService,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BatchesService } from 'app/services/batches.service';
 import { UnavailabilityService } from 'app/services/unavailability.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-u-batches',
@@ -15,6 +16,8 @@ export class UBatchesComponent implements OnInit {
   public startTime: string;
   public endTime: string;
 
+  displayedColumns = ['lecturers','dname','sname','ename','action'];
+  dataSource: MatTableDataSource<any>;
 
   constructor(
     private snackbar: MatSnackBar,

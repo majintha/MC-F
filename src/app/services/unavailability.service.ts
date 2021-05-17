@@ -22,4 +22,29 @@ export class UnavailabilityService {
   public addSessionUnavailability(sessionId, day, startTime, endTime) {
     return this.http.post(`${AppConfig.environment}/nasession`,{sessionId,day,startTime,endTime});
   }
+
+  public viewUnavailabilityById(id) {
+    return this.http.get(`${AppConfig.environment}/Unavailability/${id}`);
+  }
+
+  public viewUnavailabilitysById(id) {
+    return this.http.get(`${AppConfig.environment}/nasession/${id}`);
+  } 
+
+  public viewUnavailabilitys() {
+    return this.http.get(`${AppConfig.environment}/nasession`);
+  }
+
+  public viewAllSessions() {
+    return this.http.get(`${AppConfig.environment}/sessions`);
+  }
+
+  public viewSelectedLecturerbyID(lecId){
+    return this.http.get(`${AppConfig.environment}/lecturers/${lecId}`);
+
+  }
+
+  // public viewUnavailabilityb() {
+  //   return this.http.get(`${AppConfig.environment}/nabatch`);
+  // }
 }

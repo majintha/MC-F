@@ -52,9 +52,14 @@ export class ManageSessionsMComponent implements OnInit {
 
     ref.afterClosed().subscribe((result) => {
       if (result) {
+      
         this.loading = true;
-        this.viewAllSessions();
+
+
       }
+      
+      this.viewAllSessions();
+      console.log("closed...");
     })
   }
   private filterPredicate = (data, filter: string) => {
