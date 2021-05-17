@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LecturersService } from 'app/services/lecturers.service';
 import { UnavailabilityService } from 'app/services/unavailability.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+
+interface APIResponse {
+  success: boolean,
+  data: any
+}
 
 @Component({
   selector: 'app-u-lecturers',
@@ -12,17 +20,23 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ULecturersComponent implements OnInit {
 
   public lecturers: [];
+  public lecturers2: [];
   public lecturerId: string;
   public day: string;
   public startTime: string;
   public endTime: string;
+  public isOnUpdate: boolean;
 
-  displayedColumns = ['lecturers','dname','sname','ename','action'];
+  displayedColumns = ['lecturers','day','startTime','endTime'];
   dataSource: MatTableDataSource<any>;
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private lecturersService: LecturersService,
     private snackbar: MatSnackBar,
+    private route: ActivatedRoute,
     private unavailabilityService: UnavailabilityService 
   ) { }
 
@@ -32,12 +46,35 @@ export class ULecturersComponent implements OnInit {
     this.startTime = "";
     this.endTime = "";
     this.viewAllLecturers();
+    this.viewAllLecturers2();
+
+    this.route.queryParams.subscribe(params => {
+      if(params.id) {
+        this.unavailabilityService.viewUnavailabilitylById(params.id).subscribe((res: {data: any}) => {
+          this.lecturerId = params.lecturerId;
+          this.lecturers = res.data.lecturers;
+          this.isOnUpdate = true;
+        });
+      }
+    });
   }
 
   viewAllLecturers() {
-    this.lecturersService.viewLecturers().subscribe((res: {data: any}) => {
-      this.lecturers = res.data;
-      console.log(this.lecturers);
+    this.unavailabilityService.viewUnavailabilityl().subscribe((response: APIResponse) => {
+   
+      this.dataSource = new MatTableDataSource(response.data);
+
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+  
+    });
+
+  }
+
+  viewAllLecturers2() {
+    this.unavailabilityService.viewAllLecturers().subscribe((res: {data: any}) => {
+      this.lecturers2 = res.data;
+     // console.log(this.lecturers);
     });
   }
 
@@ -50,6 +87,7 @@ export class ULecturersComponent implements OnInit {
           duration: 2000,
         });
         this.clear();
+        this.viewAllLecturers();
       },
       (err) => {
         this.snackbar.open("Constraint: Unavailability of lecturer is adding not successful", "", {

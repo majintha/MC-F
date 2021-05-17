@@ -65,22 +65,22 @@
     <!-- Title Column -->
     <ng-container matColumnDef="lecturers">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Lecture </th>
-        <td mat-cell *matCellDef="let lecturer of lecturers"> {{notavailablelecturers.lecturerId}}</td>
+        <td mat-cell *matCellDef="let lecturers"> {{lecturers.lecturerId}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="dname">
+      <ng-container matColumnDef="day">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Day </th>
-        <td mat-cell *matCellDef="let batch"> {{notavailablelecturers.day}} </td>
+        <td mat-cell *matCellDef="let day"> {{day.day}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="sname">
+      <ng-container matColumnDef="startTime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Start time </th>
-        <td mat-cell *matCellDef="let batch"> {{notavailablelecturers.startTime}} </td>
+        <td mat-cell *matCellDef="let startTime"> {{startTime.startTime}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="ename">
+      <ng-container matColumnDef="endTime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> End time </th>
-        <td mat-cell *matCellDef="let batch"> {{notavailablelecturers.endTime}} </td>
+        <td mat-cell *matCellDef="let endTime"> {{endTime.endTime}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">

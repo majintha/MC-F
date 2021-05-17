@@ -34,6 +34,33 @@ export class UnavailabilityService {
   public viewUnavailabilitys() {
     return this.http.get(`${AppConfig.environment}/nasession`);
   }
+//lec
+  public viewUnavailabilityl() {
+    return this.http.get(`${AppConfig.environment}/nalecturer`);
+  }
+
+  public viewUnavailabilitylById(id) {
+    return this.http.get(`${AppConfig.environment}/nalecturer/${id}`);
+  } 
+
+  public viewAllLecturers() {
+    return this.http.get(`${AppConfig.environment}/nalecturer`);
+  }
+//
+
+//batch
+public viewUnavailabilityb() {
+  return this.http.get(`${AppConfig.environment}/nabatch`);
+}
+
+public viewUnavailabilitybById(id) {
+  return this.http.get(`${AppConfig.environment}/nabatch/${id}`);
+} 
+
+public viewAllBatchs() {
+  return this.http.get(`${AppConfig.environment}/nabatch`);
+}
+//
 
   public viewAllSessions() {
     return this.http.get(`${AppConfig.environment}/sessions`);
