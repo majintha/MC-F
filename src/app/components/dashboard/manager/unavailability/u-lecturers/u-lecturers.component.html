@@ -8,7 +8,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Lecturer</mat-label>
                         <mat-select name="lecturers" [(ngModel)]="lecturerId" style="color: #999;" required>
-                            <mat-option value={{lecturer._id}} *ngFor="let lecturer of lecturers">{{lecturer.fname}} {{lecturer.lname}}</mat-option>
+                            <mat-option value={{lecturer._id}} *ngFor="let lecturer of lecturers2">{{lecturer.fname}} {{lecturer.lname}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

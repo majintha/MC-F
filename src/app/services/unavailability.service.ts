@@ -44,7 +44,7 @@ export class UnavailabilityService {
   } 
 
   public viewAllLecturers() {
-    return this.http.get(`${AppConfig.environment}/nalecturer`);
+    return this.http.get(`${AppConfig.environment}/lecturers`);
   }
 //
 
@@ -58,7 +58,7 @@ public viewUnavailabilitybById(id) {
 } 
 
 public viewAllBatchs() {
-  return this.http.get(`${AppConfig.environment}/nabatch`);
+  return this.http.get(`${AppConfig.environment}/batches`);
 }
 //
 

@@ -8,7 +8,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Batch</mat-label>
                         <mat-select name="batches" [(ngModel)]="batchId" style="color: #999;" required>
-                            <mat-option value={{batch._id}} *ngFor="let batch of batches">{{batch.name}}</mat-option>
+                            <mat-option value={{batch._id}} *ngFor="let batch of batches2">{{batch.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
