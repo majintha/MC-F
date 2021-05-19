@@ -35,6 +35,35 @@ import {
   ProgrammesComponent,
   DeleteDialogBox1,
 } from "./components/dashboard/students/programmes/programmes.component";
+
+//
+
+import {
+  ULecturersComponent,
+  DeleteDialogBox13,
+} from "./components/dashboard/manager/unavailability/u-lecturers/u-lecturers.component";
+
+import {
+  UBatchesComponent,
+  DeleteDialogBox14,
+} from "./components/dashboard/manager/unavailability/u-batches/u-batches.component";
+
+import {
+  USessionsComponent,
+  DeleteDialogBox15,
+} from "./components/dashboard/manager/unavailability/u-sessions/u-sessions.component";
+
+import {
+  NonOverlappingSComponent,
+  DeleteDialogBox16,
+} from "./components/dashboard/manager/non-overlapping-s/non-overlapping-s.component";
+
+import {
+  ParallelSComponent,
+  DeleteDialogBox17,
+} from "./components/dashboard/manager/parallel-s/parallel-s.component";
+
+
 import {
   GroupsComponent,
   DeleteDialogBox3,
@@ -75,13 +104,13 @@ import { ManageSessionsMComponent } from './components/dashboard/sessionsM/manag
 import { ManagerComponent } from './components/dashboard/manager/manager.component';
 import { UnavailabilityComponent } from './components/dashboard/manager/unavailability/unavailability.component';
 import { ConsecutiveSComponent } from './components/dashboard/manager/consecutive-s/consecutive-s.component';
-import { ParallelSComponent } from './components/dashboard/manager/parallel-s/parallel-s.component';
-import { NonOverlappingSComponent } from './components/dashboard/manager/non-overlapping-s/non-overlapping-s.component';
+//import { ParallelSComponent } from './components/dashboard/manager/parallel-s/parallel-s.component';
+//import { NonOverlappingSComponent } from './components/dashboard/manager/non-overlapping-s/non-overlapping-s.component';
 import { TimeTableComponent } from './components/dashboard/time-table/time-table.component';
 import { LecturerTimetableComponent } from './components/dashboard/time-table/lecturer-timetable/lecturer-timetable.component';
-import { ULecturersComponent } from './components/dashboard/manager/unavailability/u-lecturers/u-lecturers.component';
-import { UBatchesComponent } from './components/dashboard/manager/unavailability/u-batches/u-batches.component';
-import { USessionsComponent } from './components/dashboard/manager/unavailability/u-sessions/u-sessions.component';
+//import { ULecturersComponent } from './components/dashboard/manager/unavailability/u-lecturers/u-lecturers.component';
+//import { UBatchesComponent } from './components/dashboard/manager/unavailability/u-batches/u-batches.component';
+//import { USessionsComponent } from './components/dashboard/manager/unavailability/u-sessions/u-sessions.component';
 import { ClassroomTimetableComponent } from './components/dashboard/time-table/classroom-timetable/classroom-timetable.component';
 import { StudentbatchTimetableComponent } from './components/dashboard/time-table/studentbatch-timetable/studentbatch-timetable.component';
 import { ManagePreferredLocationsComponent } from './components/dashboard/subjects/manage-preferred-locations/manage-preferred-locations.component';
@@ -104,6 +133,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DeleteDialogBox4,
     DeleteDialogBox5,
     DeleteDialogBox6,
+    DeleteDialogBox13,
+    DeleteDialogBox14,
+    DeleteDialogBox15,
+    DeleteDialogBox16,
+    DeleteDialogBox17,
   ],
   declarations: [
     AppComponent,
@@ -116,6 +150,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DeleteDialogBox,
     LecturersComponent,
     DeleteDialogBox1,
+    DeleteDialogBox13,
+    DeleteDialogBox14,
+    DeleteDialogBox15,
+    DeleteDialogBox16,
+    DeleteDialogBox17,
     DeleteDialogBox2,
     DeleteDialogBox3,
     DeleteDialogBox4,
@@ -126,6 +165,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ManageLecComponent,
     YearSemsComponent,
     ProgrammesComponent,
+    ULecturersComponent,
     GroupsComponent,
     GenerateBComponent,
     SubGroupsComponent,

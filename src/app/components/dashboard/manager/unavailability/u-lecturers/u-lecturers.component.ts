@@ -6,6 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+
+
 
 interface APIResponse {
   success: boolean,
@@ -27,7 +30,7 @@ export class ULecturersComponent implements OnInit {
   public endTime: string;
   public isOnUpdate: boolean;
 
-  displayedColumns = ['lecturers','day','startTime','endTime'];
+  displayedColumns = ['lecturers','day','startTime','endTime','action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -37,6 +40,7 @@ export class ULecturersComponent implements OnInit {
     private lecturersService: LecturersService,
     private snackbar: MatSnackBar,
     private route: ActivatedRoute,
+    private dialog: MatDialog,
     private unavailabilityService: UnavailabilityService 
   ) { }
 
@@ -103,4 +107,33 @@ export class ULecturersComponent implements OnInit {
     this.startTime = "";
     this.endTime = "";
   }
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DeleteDialogBox13);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteProgramme(_id);
+      }
+    });
+  }
+
+  deleteProgramme(id: String) {
+    this.unavailabilityService.deleteunavailabilitylById(id).subscribe(response => {
+      console.log(response);
+      this.viewAllLecturers();
+    },err => {
+      console.log(err.message);
+    });
+  }
+}
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox1.html',
+})
+export class DeleteDialogBox13 {
+  constructor() {}
+
+  public deleteProgramme() {}
+
 }

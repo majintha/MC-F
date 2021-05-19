@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BatchesService } from 'app/services/batches.service';
 import { UnavailabilityService } from 'app/services/unavailability.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
-
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
@@ -37,7 +37,7 @@ export class ParallelSComponent implements OnInit {
   public endTime: string;
   public isOnUpdate: boolean;
 
-  displayedColumns = ['subject1','subject','day','startTime','endTime'];
+  displayedColumns = ['subject1','subject','day','startTime','endTime','action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -46,6 +46,7 @@ export class ParallelSComponent implements OnInit {
   constructor(
     private snackbar: MatSnackBar,
     private batchesService: BatchesService,
+    private dialog: MatDialog,
     private route: ActivatedRoute,
     private unavailabilityService: UnavailabilityService
   ) { }
@@ -117,4 +118,34 @@ export class ParallelSComponent implements OnInit {
     this.startTime = "";
     this.endTime = "";
   }
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DeleteDialogBox17);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteProgramme(_id);
+      }
+    });
+  }
+
+  deleteProgramme(id: String) {
+    this.unavailabilityService.deleteunavailabilitybById(id).subscribe(response => {
+      console.log(response);
+      this.viewAllBatches();
+    },err => {
+      console.log(err.message);
+    });
+  }
 }
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox1.html',
+})
+export class DeleteDialogBox17 {
+  constructor() {}
+
+  public deleteProgramme() {}
+
+}
+

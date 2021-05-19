@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 
 interface APIResponse {
   success : boolean,
@@ -30,7 +31,7 @@ export class NonOverlappingSComponent implements OnInit {
   public endTime: string;
   public isOnUpdate: boolean;
 
-  displayedColumns = ['subject','day','startTime','endTime'];
+  displayedColumns = ['subject','day','startTime','endTime','action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -39,6 +40,7 @@ export class NonOverlappingSComponent implements OnInit {
   constructor(
     private snackbar: MatSnackBar,
     private batchesService: BatchesService,
+    private dialog: MatDialog,
     private route: ActivatedRoute,
     private unavailabilityService: UnavailabilityService
   ) { }
@@ -110,4 +112,34 @@ export class NonOverlappingSComponent implements OnInit {
     this.startTime = "";
     this.endTime = "";
   }
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DeleteDialogBox16);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteProgramme(_id);
+      }
+    });
+  }
+
+  deleteProgramme(id: String) {
+    this.unavailabilityService.deleteunavailabilitybById(id).subscribe(response => {
+      console.log(response);
+      this.viewAllBatches();
+    },err => {
+      console.log(err.message);
+    });
+  }
 }
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox1.html',
+})
+export class DeleteDialogBox16 {
+  constructor() {}
+
+  public deleteProgramme() {}
+
+}
+

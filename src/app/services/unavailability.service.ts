@@ -46,6 +46,10 @@ export class UnavailabilityService {
   public viewAllLecturers() {
     return this.http.get(`${AppConfig.environment}/lecturers`);
   }
+  public deleteunavailabilitylById(id) {
+    return this.http.delete(`${AppConfig.environment}/nalecturer/${id}`);
+  }
+
 //
 
 //batch
@@ -60,6 +64,10 @@ public viewUnavailabilitybById(id) {
 public viewAllBatchs() {
   return this.http.get(`${AppConfig.environment}/batches`);
 }
+
+public deleteunavailabilitybById(id) {
+  return this.http.delete(`${AppConfig.environment}/nabatch/${id}`);
+}
 //
 
   public viewAllSessions() {
@@ -69,6 +77,10 @@ public viewAllBatchs() {
   public viewSelectedLecturerbyID(lecId){
     return this.http.get(`${AppConfig.environment}/lecturers/${lecId}`);
 
+  }
+
+  public deleteunavailabilitysById(id) {
+    return this.http.delete(`${AppConfig.environment}/nasession/${id}`);
   }
 
   // public viewUnavailabilityb() {

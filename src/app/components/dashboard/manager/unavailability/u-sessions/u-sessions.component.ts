@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 
 interface APIResponse {
   success: boolean,
@@ -29,7 +30,7 @@ export class USessionsComponent implements OnInit {
   public endTime: string;
   public isOnUpdate: boolean;
 
-  displayedColumns = ['sessions','day','startTime','endTime'];  
+  displayedColumns = ['sessions','day','startTime','endTime','action'];  
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -39,6 +40,7 @@ export class USessionsComponent implements OnInit {
     private sessionsService: SessionsService,
     private snackbar: MatSnackBar,
     private route: ActivatedRoute,
+    private dialog: MatDialog,
     private unavailabilityService: UnavailabilityService
   ) { }
 
@@ -108,4 +110,34 @@ export class USessionsComponent implements OnInit {
     this.endTime = "";
   }
 
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DeleteDialogBox15);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteProgramme(_id);
+      }
+    });
+  }
+
+  deleteProgramme(id: String) {
+    this.unavailabilityService.deleteunavailabilitysById(id).subscribe(response => {
+      console.log(response);
+      this.viewAllSessions();
+    },err => {
+      console.log(err.message);
+    });
+  }
 }
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox1.html',
+})
+export class DeleteDialogBox15 {
+  constructor() {}
+
+  public deleteProgramme() {}
+
+}
+
