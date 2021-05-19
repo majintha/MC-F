@@ -1,20 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { UBatchesComponent } from '../unavailability/u-batches/u-batches.component';
 
-import { NonOverlappingSComponent } from './non-overlapping-s.component';
 
-describe('NonOverlappingSComponent', () => {
-  let component: NonOverlappingSComponent;
-  let fixture: ComponentFixture<NonOverlappingSComponent>;
+
+describe('UBatchesComponent', () => {
+  let component: UBatchesComponent;
+  let fixture: ComponentFixture<UBatchesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NonOverlappingSComponent ]
+      declarations: [ UBatchesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NonOverlappingSComponent);
+    fixture = TestBed.createComponent(UBatchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,3 +24,4 @@ describe('NonOverlappingSComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

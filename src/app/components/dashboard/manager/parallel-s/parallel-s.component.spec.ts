@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { UBatchesComponent } from '../unavailability/u-batches/u-batches.component';
 
-import { ParallelSComponent } from './parallel-s.component';
-
-describe('ParallelSComponent', () => {
-  let component: ParallelSComponent;
-  let fixture: ComponentFixture<ParallelSComponent>;
+describe('UBatchesComponent', () => {
+  let component: UBatchesComponent;
+  let fixture: ComponentFixture<UBatchesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParallelSComponent ]
+      declarations: [ UBatchesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParallelSComponent);
+    fixture = TestBed.createComponent(UBatchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,3 +22,4 @@ describe('ParallelSComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

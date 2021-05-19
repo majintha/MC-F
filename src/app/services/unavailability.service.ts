@@ -11,8 +11,8 @@ export class UnavailabilityService {
     private http: HttpClient
   ) { }
 
-  public addBatchUnavailability(batchId, day, startTime, endTime) {
-    return this.http.post(`${AppConfig.environment}/nabatch`,{batchId,day,startTime,endTime});
+  public addBatchUnavailability(subject1,subject, batchId, day, startTime, endTime) {
+    return this.http.post(`${AppConfig.environment}/nabatch`,{subject1,subject,batchId,day,startTime,endTime});
   }
 
   public addLecturerUnavailability(lecturerId, day, startTime, endTime) {

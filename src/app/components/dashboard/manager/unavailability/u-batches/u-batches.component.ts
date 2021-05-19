@@ -18,6 +18,8 @@ interface APIResponse {
   styleUrls: ['./u-batches.component.scss']
 })
 export class UBatchesComponent implements OnInit {
+  public subject1: string;
+  public subject: string;
   public batches: [];
   public batches2: [];
   public batchId: string;
@@ -81,7 +83,7 @@ export class UBatchesComponent implements OnInit {
 
   save() {
     console.log(this.batchId);
-    this.unavailabilityService.addBatchUnavailability(this.batchId,this.day,this.startTime,this.endTime).subscribe(
+    this.unavailabilityService.addBatchUnavailability(this.subject1,this.subject,this.batchId,this.day,this.startTime,this.endTime).subscribe(
       (res) => {
         console.log(res);
         this.snackbar.open("Constraint: Unavailability of batch is added successfully", "" , {
