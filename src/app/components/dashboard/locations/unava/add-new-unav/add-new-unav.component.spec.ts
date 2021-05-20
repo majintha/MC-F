@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddNewRoomComponent } from './add-new-room.component';
+import { AddNewRoomComponent } from './add-new-unav.component';
 
 describe('AddNewRoomComponent', () => {
   let component: AddNewRoomComponent;

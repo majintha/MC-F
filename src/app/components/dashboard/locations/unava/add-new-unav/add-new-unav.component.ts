@@ -7,11 +7,11 @@ import { APIResponse } from 'app/models/apiresponse';
 import { AlertService } from 'app/services/alert.service';
 
 @Component({
-  selector: 'app-add-new-room',
-  templateUrl: './add-new-room.component.html',
-  styleUrls: ['./add-new-room.component.scss']
+  selector: 'app-add-new-unav',
+  templateUrl: './add-new-unav.component.html',
+  styleUrls: ['./add-new-unav.component.scss']
 })
-export class AddNewRoomComponent implements OnInit {
+export class AddNewUnavComponent implements OnInit {
 
   private buildings: Building[];
 
@@ -22,7 +22,7 @@ export class AddNewRoomComponent implements OnInit {
   public selectBuilding: boolean;
 
   constructor(
-    public dialogRef: MatDialogRef<AddNewRoomComponent>,
+    public dialogRef: MatDialogRef<AddNewUnavComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { building_id },
     private roomService: RoomService,
     private buildingService: BuildingService,

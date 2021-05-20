@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddNewRoomComponent } from './add-new-unav/add-new-unav.component';
+import { AddNewUnavComponent } from './add-new-unav/add-new-unav.component';
 import { Room } from 'app/models/room';
 import { RoomService } from 'app/services/room.service';
 import { APIResponse } from 'app/models/apiresponse';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { AlertService } from 'app/services/alert.service';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-rooms',
-  templateUrl: './rooms.component.html',
-  styleUrls: ['./rooms.component.scss']
+  selector: 'app-unava',
+  templateUrl: './unava.component.html',
+  styleUrls: ['./unava.component.scss']
 })
-export class RoomsComponent implements OnInit {
+export class UnavaComponent implements OnInit {
 
   private rooms: MatTableDataSource<Room>;
   private loading: boolean;
@@ -48,7 +50,7 @@ export class RoomsComponent implements OnInit {
   }
 
   public openNewRoomModal() {
-    const ref = this.matDialog.open(AddNewRoomComponent, {
+    const ref = this.matDialog.open(AddNewUnavComponent, {
       width: '50%',
       disableClose: true,
     });

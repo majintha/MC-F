@@ -6,10 +6,10 @@ import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-manage-suitable-rooms',
-  templateUrl: './manage-suitable-rooms.component.html',
-  styleUrls: ['./manage-suitable-rooms.component.scss']
+  templateUrl: './manage-suitable-unava.component.html',
+  styleUrls: ['./manage-suitable-unava.component.scss']
 })
-export class ManageSuitableRoomsComponent implements OnInit {
+export class ManageSuitableUnavaComponent implements OnInit {
 
   public rooms: [];
   public resource;
@@ -19,7 +19,7 @@ export class ManageSuitableRoomsComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { resource: string, id: string },
-    private dialogRef: MatDialogRef<ManageSuitableRoomsComponent>,
+    private dialogRef: MatDialogRef<ManageSuitableUnavaComponent>,
     private roomService: RoomService
   ) { }
 

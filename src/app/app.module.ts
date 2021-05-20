@@ -90,9 +90,11 @@ import { UpdateWorksComponent } from './components/dashboard/works/update-works/
 import { AddTimeSlotsComponent } from './components/dashboard/works/add-time-slots/add-time-slots.component';
 import { BuildingsComponent } from './components/dashboard/locations/buildings/buildings.component';
 import { RoomsComponent } from './components/dashboard/locations/rooms/rooms.component';
+import { UnavaComponent } from './components/dashboard/locations/unava/unava.component';
 import { AddNewBuildingComponent } from './components/dashboard/locations/buildings/add-new-building/add-new-building.component';
 import { ViewBuildingComponent } from './components/dashboard/locations/buildings/view-building/view-building.component';
 import { AddNewRoomComponent } from './components/dashboard/locations/rooms/add-new-room/add-new-room.component';
+import { AddNewUnavComponent } from './components/dashboard/locations/unava/add-new-unav/add-new-unav.component';
 import { ViewRoomComponent } from './components/dashboard/locations/rooms/view-room/view-room.component';
 import { ViewUnavComponent } from './components/dashboard/locations/unava/view-unav/view-unav.component';
 import { SessionsComponent } from './components/dashboard/sessions/sessions.component';
@@ -117,7 +119,7 @@ import { ManagePreferredLocationsComponent } from './components/dashboard/subjec
 
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { ManageSuitableRoomsComponent } from './components/dashboard/locations/rooms/manage-suitable-rooms/manage-suitable-rooms.component';
-
+import { ManageSuitableUnavaComponent } from './components/dashboard/locations/unava/manage-suitable-unava/manage-suitable-unava.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -179,9 +181,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AddTimeSlotsComponent,
     BuildingsComponent,
     RoomsComponent,
+    UnavaComponent,
     AddNewBuildingComponent,
     ViewBuildingComponent,
     AddNewRoomComponent,
+    AddNewUnavComponent,
     ViewRoomComponent,
     ViewUnavComponent,
     SessionsComponent,
@@ -204,6 +208,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     StudentbatchTimetableComponent,
     ManagePreferredLocationsComponent,
     ManageSuitableRoomsComponent,
+    ManageSuitableUnavaComponent,
   ],
   imports: [
     BrowserModule,

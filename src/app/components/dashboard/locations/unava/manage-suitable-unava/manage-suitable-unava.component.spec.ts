@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageSuitableRoomsComponent } from './manage-suitable-rooms.component';
+import { ManageSuitableUnavaComponent } from './manage-suitable-unava.component';
 
-describe('ManageSuitableRoomsComponent', () => {
-  let component: ManageSuitableRoomsComponent;
-  let fixture: ComponentFixture<ManageSuitableRoomsComponent>;
+describe('ManageSuitableUnavaComponent', () => {
+  let component: ManageSuitableUnavaComponent;
+  let fixture: ComponentFixture<ManageSuitableUnavaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageSuitableRoomsComponent ]
+      declarations: [ ManageSuitableUnavaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageSuitableRoomsComponent);
+    fixture = TestBed.createComponent(ManageSuitableUnavaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

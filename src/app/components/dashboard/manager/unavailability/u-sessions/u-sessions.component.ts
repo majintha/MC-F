@@ -63,6 +63,11 @@ export class USessionsComponent implements OnInit {
     });
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   viewAllSessions() {
     this.unavailabilityService.viewUnavailabilitys().subscribe((response: APIResponse) => {
    

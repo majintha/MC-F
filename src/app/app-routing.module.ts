@@ -24,6 +24,7 @@ import { UpdateWorksComponent } from './components/dashboard/works/update-works/
 import { AddTimeSlotsComponent } from './components/dashboard/works/add-time-slots/add-time-slots.component';
 import { BuildingsComponent } from './components/dashboard/locations/buildings/buildings.component';
 import { RoomsComponent } from './components/dashboard/locations/rooms/rooms.component';
+import { UnavaComponent } from './components/dashboard/locations/unava/unava.component';
 import { ViewBuildingComponent } from './components/dashboard/locations/buildings/view-building/view-building.component';
 import { ViewRoomComponent } from './components/dashboard/locations/rooms/view-room/view-room.component';
 import { ViewUnavComponent } from './components/dashboard/locations/unava/view-unav/view-unav.component';
